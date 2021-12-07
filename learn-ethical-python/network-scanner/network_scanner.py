@@ -1,6 +1,15 @@
 #!/usr/bin/env python3
 
 import scapy.all as scapy
+from optparse import OptionParser
+
+def arg_parse():
+    parser = OptionParser()
+    parser.add_option("-t", "--target", dest="target", help="Target to scan, either host IP or network IP.")
+    (opt, arg) = parser.parse_args()
+    if not opt.target:
+        parser.error("[-] You need to select a target, use --help for more information.")
+    return opt.target
 
 def scan(ip):
     arp_request = scapy.ARP(pdst=ip)                                                  # Create an ARP packet
@@ -21,7 +30,6 @@ def print_results(scan_results):
     for client in scan_results:
         print(client['ip'] + "\t\t\t" + client['mac'])
 
-
-# scan(input("Please enter Host / Network address: "))
-scan_results = scan("192.168.1.1/24")
+target = arg_parse()
+scan_results = scan(target)
 print_results(scan_results)
