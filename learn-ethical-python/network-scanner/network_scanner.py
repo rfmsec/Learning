@@ -3,7 +3,7 @@
 import scapy.all as scapy
 from optparse import OptionParser
 
-def arg_parse():
+def parse_args():
     parser = OptionParser()
     parser.add_option("-t", "--target", dest="target", help="Target to scan, either host IP or network IP.")
     (opt, arg) = parser.parse_args()
@@ -30,6 +30,6 @@ def print_results(scan_results):
     for client in scan_results:
         print(client['ip'] + "\t\t\t" + client['mac'])
 
-target = arg_parse()
+target = parse_args()
 scan_results = scan(target)
 print_results(scan_results)

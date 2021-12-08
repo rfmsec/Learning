@@ -6,7 +6,7 @@ import re
 
 MAC_pattern = r"(\w\w:){5}\w\w"
 
-def get_arguments():
+def parse_args():
     parser = optparse.OptionParser()
     parser.add_option("-R","--reset", dest="reset", default=False, help="Reset to original MAC")
     parser.add_option("-i","--interface", dest="interface", help="Interface name")
@@ -46,5 +46,5 @@ def change_mac(interface, new_mac):
     new_mac = get_current_mac(interface)
     print("[+] Success? True" if new_mac != current_mac else "[-] Success? False")
 
-opt = get_arguments()
+opt = parse_args()
 change_mac(opt.interface, opt.new_mac)
