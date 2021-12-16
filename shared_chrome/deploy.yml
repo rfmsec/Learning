@@ -21,7 +21,7 @@ spec:
       securityContext:
       containers:
       - name: chrome
-        image: sec911/chrome
+        image: sec911/chrome:final
         ports:
         - containerPort: 6901
 ---
