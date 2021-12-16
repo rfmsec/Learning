@@ -1,5 +1,5 @@
 # USE Alpine as base image
-FROM alpine:3.13
+FROM alpine:3.11
 
 # Install required utilities
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
