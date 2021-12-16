@@ -21,7 +21,7 @@ spec:
       securityContext:
       containers:
       - name: chrome
-        image: sec911/chrome3
+        image: sec911/chrome
         ports:
         - containerPort: 6901
 ---
@@ -33,8 +33,8 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - port: 6901
-      nodePort: 30000
+    - port: 8080
       targetPort: 6901
   selector:
     app: chrome
+  type: LoadBalancer

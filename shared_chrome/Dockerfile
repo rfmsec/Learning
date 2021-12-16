@@ -8,6 +8,7 @@ RUN apk add --no-cache bash chromium fluxbox novnc supervisor websockify x11vnc 
 # Copy configuration files
 RUN ln -s /usr/share/novnc/vnc_lite.html /usr/share/novnc/index.html
 COPY supervisord.conf /etc/supervisord.conf
+COPY conf.d/ /conf.d/
 COPY menu /root/.fluxbox/menu
 COPY entry.sh /entry.sh
 
