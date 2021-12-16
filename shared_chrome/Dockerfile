@@ -20,7 +20,5 @@ ENV PYTHONPATH=/usr/lib/python3.9/site-packages/
 # Expose ports
 EXPOSE 6901 5901
 
-RUN chmod +x /entry.sh
-
 # Entry point
 CMD ["/bin/bash", "-c", "/entry.sh"]
