@@ -25,6 +25,7 @@ def trace(ip, port):
         flags = rcv.sprintf("%TCP.flags%")
         icmp = rcv.sprintf("%ICMP.type%")
         print(f"{snd.ttl}\t\t\t{rcv.src}\t\t" + icmp if flags == "??" else f"{snd.ttl}\t\t\t{rcv.src}\t\t\t" + flags)
+        if rcv.src == snd.dst: return
 
 
 opt = parse_args()
