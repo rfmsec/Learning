@@ -57,4 +57,17 @@ STRIKE7 = ("""    x-------x
 print(HANGMAN_ASCII_ART)
 print(MAX_TRIES)
 gussed_letter = input("Guess a letter: ")
-print(gussed_letter).lower()
+if len(gussed_letter) == 1:
+    if gussed_letter.lower() in 'abcdefghijqlmnopqrstuvwxyz':
+        print(gussed_letter.lower())
+    else:
+        print("E2")
+else:
+    ENGLISH_LETTERS = 'abcdefghijklmnopqrstuvwxyz'
+    not_english = False
+    for letter in gussed_letter.lower():
+        if letter in ENGLISH_LETTERS:
+            pass
+        else:
+            not_english = True
+    print("E3" if not_english else "E1")
