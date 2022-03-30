@@ -1,11 +1,12 @@
 #!/bin/bash
 cd /home/ec2-user/
 
-# Download required files# Add kubeconfig to bashrc
-echo 'export KUBECONFIG="/home/ec2-user/.kube/config"' >> /etc/bashrc
-
+# Download required files
 wget https://raw.githubusercontent.com/rfmsec/Learning/master/kind-config.yaml
 wget https://github.com/rfmsec/Learning/raw/master/flask-kubeapi.zip
+
+# Add kubeconfig to bashrc
+echo 'export KUBECONFIG="/home/ec2-user/.kube/config"' >> /etc/bashrc
 
 # Install docker
 yum install -y docker
