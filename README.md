@@ -1,3 +1,3 @@
 # Learning
 
-This repo will contain files related to my learning projects
+Some stuff I built during learning projects
